@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Rest Example: Post</title>
+	
+	<script src="js/jquery-min.js"></script>
+	<script src="js/polyfill.js"></script>
+	<script src="js/post.js"></script>
+</head>
+<body>
+
+<h1>API Post Example</h1>
+
+<form id="post_example" name="post_example" action="#">
+<table>
+<tr>
+	<td>FIRST_NAME</td>
+	<td><input type="text" name="FIRST_NAME" id="FIRST_NAME" maxlength="20" value="Thomas"></td>
+</tr>
+<!-- Made a change to PC_PARTS_CODE input after episode 6, input should ONLY numeric -->
+<tr>
+	<td>LAST_NAME</td>
+	<td><input type="text" name="LAST_NAME" id="LAST_NAME" maxlength="20" value="Parker"></td>
+</tr>
+<tr>
+	<td>DEPT</td>
+	<td><input type="text" name="DEPT" id="DEPT" maxlength="20" value="Finance"></td>
+</tr>
+<tr>
+	<td>TITLE</td>
+	<td><input type="text" name="TITLE" id="TITLE" maxlength="20" value="Accountant"></td>
+</tr>
+
+<tr>
+	<td></td>
+	<td><input type="button" name="submit_it" id="submit_it" value="Submit"> Using Jackson Mapper</td>
+</tr>
+<tr>
+	<td></td>
+	<td><input type="button" name="submit_it2" id="submit_it2" value="Submit v2"> Using JSON Array and Object</td>
+</tr>
+</table>
+</form>
+
+<br />
+<div id="div_ajaxResponse"></div>
+
+</body>
+</html>
