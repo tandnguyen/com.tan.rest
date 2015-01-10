@@ -41,7 +41,7 @@ public class V3_Employees {
 			int http_code = dao.insertIntoEMP_TABLE(partsData.optString("FIRST_NAME"), 
 														partsData.optString("LAST_NAME"), 
 														partsData.optString("DEPT"), 
-														partsData.optString("TITLE") );
+														partsData.optString("TITLE"), partsData.optString("BAND") );
 			
 			if( http_code == 200 ) {
 				/*

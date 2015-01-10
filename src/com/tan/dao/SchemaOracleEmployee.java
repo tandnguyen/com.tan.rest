@@ -9,7 +9,8 @@ public class SchemaOracleEmployee extends OracleEmployee {
 			String FIRST_NAME, 
 			String LAST_NAME,
 			String DEPT,
-			String TITLE)
+			String TITLE,
+			String BAND)
 			throws Exception {
 		
 		PreparedStatement query = null;
@@ -25,14 +26,16 @@ public class SchemaOracleEmployee extends OracleEmployee {
 			 * 		SQL insert query below.
 			 */
 			conn = oracleEmployeesConnection();
-			query = conn.prepareStatement("insert into EMP_TABLE1 " +
-					"(FIRST_NAME, LAST_NAME, DEPT, TITLE) " +
-					"VALUES ( ?, ?, ?, ? ) ");
+			query = conn.prepareStatement("insert into EMP_TABLE2 " +
+					"(FIRST_NAME, LAST_NAME, DEPT, TITLE, BAND) " +
+					"VALUES ( ?, ?, ?, ?, ? ) ");
 
 			query.setString(1, FIRST_NAME);
 			query.setString(2, LAST_NAME);
 			query.setString(3, DEPT);
 			query.setString(4, TITLE);
+			int intBand = Integer.parseInt(BAND);
+			query.setInt(5, intBand);
 
 			System.out.println(query);
 			query.executeUpdate(); //note the new command for insert statement
@@ -61,7 +64,7 @@ public class SchemaOracleEmployee extends OracleEmployee {
 		
 		try {
 			conn =  oracleEmployeesConnection();
-			query = conn.prepareStatement("select FIRST_NAME, LAST_NAME, DEPT, TITLE from EMP_TABLE1 where UPPER(DEPT) = ? ");
+			query = conn.prepareStatement("select FIRST_NAME, LAST_NAME, DEPT, TITLE, BAND from EMP_TABLE2 where UPPER(DEPT) = ? ");
 			
 			query.setString(1, department.toUpperCase()); //protect against sql injection
 			ResultSet rs = query.executeQuery();

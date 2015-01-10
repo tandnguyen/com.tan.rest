@@ -65,7 +65,8 @@ public class V2_Employees {
 			int http_code = dao.insertIntoEMP_TABLE(itemEntry.FIRST_NAME, 
 													itemEntry.LAST_NAME, 
 													itemEntry.DEPT, 
-													itemEntry.TITLE );
+													itemEntry.TITLE,
+													itemEntry.BAND);
 			
 			if( http_code == 200 ) {
 				//returnString = jsonArray.toString();
@@ -89,4 +90,5 @@ class ItemEntry {
 	public String LAST_NAME ;
 	public String DEPT;
 	public String TITLE;
+	public String BAND;
 }
