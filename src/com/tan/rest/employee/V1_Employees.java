@@ -18,7 +18,7 @@ import com.tan.dao.OracleEmployee;
 import com.tan.util.ToJSON;
 
 @Path("/v1/employees")
-public class Employees {
+public class V1_Employees {
 	private static final String api_version= "00.01.14";
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -89,21 +89,6 @@ public class Employees {
 		
 		return returnString;
 	}
-	/*
-	@Path("/version")
-	@GET
-	@Produces(MediaType.TEXT_HTML)
-	public String returnVersion(){
-		return "<p>Version: </p>" + api_version;
-		
-	}
-	@Path("/employee")
-	@GET
-	@Produces(MediaType.TEXT_HTML)
-	public String returnEmployeeRecord(){
-		return "Tan Nguyen";
-		
-	}
-	*/
+
 	
 }
