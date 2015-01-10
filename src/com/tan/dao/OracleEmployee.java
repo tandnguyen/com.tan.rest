@@ -1,7 +1,6 @@
 package com.tan.dao;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 
 import javax.naming.*;
 import javax.sql.*;

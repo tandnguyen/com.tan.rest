@@ -43,10 +43,10 @@ public class V2_Employees {
 	@Consumes({MediaType.APPLICATION_FORM_URLENCODED,MediaType.APPLICATION_JSON})
 	//@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response addPcParts(String incomingData) throws Exception {
+	public Response addEmployee(String incomingData) throws Exception {
 		
 		String returnString = null;
-		JSONArray jsonArray = new JSONArray(); 
+		//JSONArray jsonArray = new JSONArray(); 
 		SchemaOracleEmployee dao = new SchemaOracleEmployee();
 		
 		try {
