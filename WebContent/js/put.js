@@ -73,7 +73,7 @@ $(document).ready(function() {
 });
 
 function updateInventory(obj, first, last) {
-	
+	console.log(obj);
 	ajaxObj = {  
 			type: "PUT",
 			url: "http://localhost:8700/com.tan.rest/api/v3/employees/" + first + "/" + last,

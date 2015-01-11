@@ -97,12 +97,12 @@ public int updateEMP_TABLE(int id, int band) throws Exception {
 			 * If this was a real application, you should do data validation here
 			 * before updating data.
 			 */
-			
+			System.out.println("FROM updateEMP_TABLE");
 			conn = oracleEmployeesConnection();
-			query = conn.prepareStatement("update EMP_TABLE2 set BAND = ? where ID = ? ");
-			
+			query = conn.prepareStatement("update EMP_TABLE2 set BAND = ? where ID = ?");
 			query.setInt(1, band);
 			query.setInt(2, id);
+
 			query.executeUpdate();
 			
 		} catch(Exception e) {
