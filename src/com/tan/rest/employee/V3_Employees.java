@@ -98,7 +98,7 @@ public class V3_Employees {
 			JSONObject employeeData = new JSONObject(incomingData); //we are using json objects to parse data
 			id = employeeData.optInt("ID", 0);
 			band = employeeData.optInt("BAND", 0);
-			
+			System.out.println ("ID: " + id + " BAND: " + band);
 			//call the correct sql method
 			http_code = dao.updateEMP_TABLE(id, band);
 			

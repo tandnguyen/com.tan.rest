@@ -13,12 +13,13 @@ $(document).ready(function() {
 		, $SET_PC_PARTS_CODE = $('#SET_PC_PARTS_CODE');
 	*/
 	var $put_example = $('#put_example')
+	, $SET_ID = $('#SET_ID')
 	, $SET_FIRST_NAME = $('#SET_FIRST_NAME')
 	, $SET_LAST_NAME = $('#SET_LAST_NAME');	
 	getInventory();
 	
 	$(document.body).on('click', ':button, .UPDATE_BTN', function(e) {
-		//console.log(this);
+		console.log(this);
 		/*
 		var $this = $(this)
 			, FIRST_NAME = $this.val()
@@ -49,6 +50,7 @@ $(document).ready(function() {
 		$('#update_response').text("");
 		*/
 		$('#SET_ID').val(ID);
+		$SET_ID.val(ID);
 		$SET_FIRST_NAME.text(FIRST_NAME);
 		$SET_LAST_NAME.text(LAST_NAME);
 		$('#SET_DEPT').text(DEPT);
@@ -62,6 +64,7 @@ $(document).ready(function() {
 		e.preventDefault(); //cancel form submit
 		
 		var obj = $put_example.serializeObject()
+			, ID = $SET_ID.text()
 			, FIRST_NAME = $SET_FIRST_NAME.text()
 			, LAST_NAME = $SET_LAST_NAME.text();
 		
@@ -80,11 +83,11 @@ function updateInventory(obj, first, last) {
 				console.log(jqXHR.responseText);
 			},
 			success: function(data) {
-				//console.log(data);
+				console.log(data);
 				$('#update_response').text( data[0].MSG );
 			},
 			complete: function(XMLHttpRequest) {
-				//console.log( XMLHttpRequest.getAllResponseHeaders() );
+				console.log( XMLHttpRequest.getAllResponseHeaders() );
 				getInventory();
 			}, 
 			dataType: "json" //request JSON
@@ -128,11 +131,14 @@ function getInventory() {
 
 function templateGetInventory(param) {
 	return '<tr>' +
+				'<td class="CL_ID">' + param.ID + '</td>' +
 				'<td class="CL_FIRST_NAME">' + param.FIRST_NAME + '</td>' +
 				'<td class="CL_LAST_NAME">' + param.LAST_NAME + '</td>' +
 				'<td class="CL_DEPT">' + param.DEPT + '</td>' +
 				'<td class="CL_TITLE">' + param.TITLE + '</td>' +
 				'<td class="CL_BAND">' + param.BAND + '</td>' +
-				'<td class="CL_PC_PARTS_BTN"> <button class="UPDATE_BTN" value=" ' + param.ID + ' " type="button">Update</button> </td>' +
+				'<td class="CL_EMP_TABLE_BTN"> <button class="UPDATE_BTN" value=" ' + param.ID + ' " type="button">Update</button> </td>' +
 			'</tr>';
+	
+	//'<td class="CL_PC_PARTS_BTN"> <button class="UPDATE_BTN" value=" ' + param.ID + ' " type="button">Update</button> </td>' +
 }
