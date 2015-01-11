@@ -86,4 +86,33 @@ public class SchemaOracleEmployee extends OracleEmployee {
 		
 		return json;
 	}
+	
+public int updateEMP_TABLE(int id, int band) throws Exception {
+		
+		PreparedStatement query = null;
+		Connection conn = null;
+		
+		try {
+			/*
+			 * If this was a real application, you should do data validation here
+			 * before updating data.
+			 */
+			
+			conn = oracleEmployeesConnection();
+			query = conn.prepareStatement("update EMP_TABLE2 set BAND = ? where ID = ? ");
+			
+			query.setInt(1, band);
+			query.setInt(2, id);
+			query.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			return 500;
+		}
+		finally {
+			if (conn != null) conn.close();
+		}
+		
+		return 200;
+	}
 }

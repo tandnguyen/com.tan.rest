@@ -29,7 +29,7 @@ public class V1_Employees {
 		Response rb = null;
 		try {
 			conn = OracleEmployee.OracleEmployeesConn().getConnection();
-			query = conn.prepareStatement("select * from EMP_TABLE");
+			query = conn.prepareStatement("select * from EMP_TABLE2");
 			ResultSet rs = query.executeQuery();
 			ToJSON converter = new ToJSON();
 			JSONArray json = new JSONArray();
