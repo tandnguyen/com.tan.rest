@@ -1,6 +1,8 @@
 package com.tan.dao;
 import java.sql.*;
+
 import org.codehaus.jettison.json.JSONArray;
+
 import com.tan.util.ToJSON;
 
 public class SchemaOracleEmployee extends OracleEmployee {
@@ -115,4 +117,32 @@ public int updateEMP_TABLE(int id, int band) throws Exception {
 		
 		return 200;
 	}
+
+
+public int getId(String first, String last) throws Exception {
+	// TODO Auto-generated method stub
+	PreparedStatement query = null;
+	Connection conn = null;
+	int id = 0;
+	try {
+		conn = oracleEmployeesConnection();
+		query = conn.prepareStatement("select ID from EMP_TABLE2 where FIRST_NAME = '" + first + "' AND LAST_NAME = '" + last +"'");
+		//query.setString(1, first);
+		//query.setString(2, last);
+		ResultSet rs = query.executeQuery(); 
+		while (rs.next()){
+			id = rs.getInt("ID");
+			System.out.println (first + " " + last + "'s Employee ID is: " + id);
+		}
+		
+	} catch(Exception e) {
+		e.printStackTrace();
+		return 0;
+	}
+	finally {
+		if (conn != null) conn.close();
+	}
+	
+	return id;
+}
 }
